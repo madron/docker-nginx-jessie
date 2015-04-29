@@ -1,6 +1,9 @@
 FROM debian:jessie
 MAINTAINER Massimiliano Ravelli, massimiliano.ravelli@gmail.com
 
+# nginx user
+RUN groupadd -g 999 nginx && useradd -u 999 -g 999 nginx
+
 RUN apt-get update && \
     apt-get install -y nginx-full && \
     rm -rf /var/lib/apt/lists/*
